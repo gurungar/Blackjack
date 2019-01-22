@@ -2,8 +2,8 @@ class Chips:
     '''
     The Chips class helps determine the amount of chips remaining after the bet
     '''
-    def __init__(self, total=100):
-        self.total = total  # This can be set to a default value or supplied by a user input
+    def __init__(self):
+        self.total = 100  # This can be set to a default value or supplied by a user input
         self.bet = 0
 
     def win_bet(self):

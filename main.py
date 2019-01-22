@@ -6,6 +6,26 @@ from Chips import *
 from Hand import *
 from other import *
 
+playing = True
+
+def hit_or_stand(deck, hand):
+    global playing
+
+    while True:
+        x = input("Would you like to Hit or Stand? Enter 'h' or 's' ")
+
+        if x[0].lower() == 'h':
+            hit(deck, hand)  # hit() function defined above
+
+        elif x[0].lower() == 's':
+            print("Player stands. Dealer is playing.")
+            playing = False
+        else:
+            print("Sorry, please try again.")
+            continue
+        break
+
+
 
 '''
 The game begins
@@ -14,6 +34,7 @@ while True:
     # Print an opening statement
     print('Welcome to BlackJack! Get as close to 21 as you can without going over!\n\
     Dealer hits until she reaches 17. Aces count as 1 or 11.')
+
 
     # Create & shuffle the deck, deal two cards to each player
     deck = Deck()
@@ -49,7 +70,8 @@ while True:
             player_busts(player_hand, dealer_hand, player_chips)
             break
 
-            # If Player hasn't busted, play Dealer's hand until Dealer reaches 17
+
+    # If Player hasn't busted, play Dealer's hand until Dealer reaches 17
     if player_hand.value <= 21:
 
         while dealer_hand.value < 17:
